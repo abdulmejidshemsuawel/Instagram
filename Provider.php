@@ -48,7 +48,8 @@ class Provider extends AbstractProvider
      */
     protected function getAuthUrl($state): string
     {
-        return $this->buildAuthUrlFromBase('https://api.instagram.com/oauth/authorize', $state);
+        // api.instagram.com/oauth/authorize now returns 404; Instagram Login requires www.instagram.com
+        return $this->buildAuthUrlFromBase('https://www.instagram.com/oauth/authorize', $state);
     }
 
     /**
